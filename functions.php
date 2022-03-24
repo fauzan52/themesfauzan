@@ -210,7 +210,7 @@ function custom_post_type()
         'exclude_from_search' => false
     );
     register_post_type('series', $args);
-}
+}git br
 
 // Redux Framework
 require_once(get_template_directory() . "/library/redux-core/framework.php");
