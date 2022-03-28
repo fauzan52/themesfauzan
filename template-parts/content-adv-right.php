@@ -12,7 +12,6 @@
         </div>
     <?php } ?>
 </div>
-
 <div class="flex">
     <?php
     global $fauzanredux;

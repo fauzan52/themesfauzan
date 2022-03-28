@@ -1,17 +1,12 @@
 <?php
 global $fauzanredux;
-get_header('');
+get_header();
 ?>
 <div class="container">
     <?php
     if (have_posts()) :
     if (is_search() || is_archive() || is_tax() || is_tag()) :?>
-        <header class="page-header">
-            <?php
-            the_archive_title('<h1 class="page-title">', '</h1>');
-            the_archive_description('<div class="archive-description">', '</div>');
-            ?>
-        </header>
+
     <?php endif; ?>
     <div class="row">
         <?php

@@ -13,7 +13,6 @@ get_header(); ?>
             $args = array(
                 'post_type' => 'post',
                 'post_status' => 'publish',
-                'category_name' => 'berita-olahraga',
                 'posts_per_page' => 999,
                 'paged' => $paged,
             );

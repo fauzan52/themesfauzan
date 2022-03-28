@@ -34,163 +34,36 @@ function theme_styles_css()
 {
 // Load all of the styles that need to appear on all pages
     wp_enqueue_style('primary', get_template_directory_uri() . '/css/style.css');
-    wp_enqueue_style('custom', get_template_directory_uri() . '/css/magnific-popup.css');
 }
 
 add_action('wp_enqueue_scripts', 'theme_styles_css');
 
-//CUSTOM POST TYPE
-// BERITA TERBARU
-function post_type_terbaru()
-{
-    $args = array(
-        'labels' => array(
-            'name' => 'Berita Terbaru',
-            'singular_name' => 'Berita Terbaru',
-        ),
-        'hierarchical' => true,
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-insert',
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
-    );
-    register_post_type('berita-terbaru', $args);
-}
-add_action('init', 'post_type_terbaru');
-
-function taxonomy_terbaru()
-{
-    $args = array(
-        'public' => true,
-        'hierarchical' => true,
-    );
-    register_taxonomy('category', array('berita-terbaru'), $args);
-}
-add_action('init', 'taxonomy_terbaru');
-
-// BERITA OLAHRAGA
-function post_type_olahraga()
-{
-    $args = array(
-        'labels' => array(
-            'name' => 'Berita Olahraga',
-            'singular_name' => 'Berita Olahraga',
-        ),
-        'hierarchical' => true,
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-insert',
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
-    );
-    register_post_type('berita-olahraga', $args);
-}
-add_action('init', 'post_type_olahraga');
-
-function taxonomy_olahraga()
-{
-    $args = array(
-        'labels' => array(
-            'name' => 'Category Olahraga',
-            'singular_name' => 'Category Olahraga',
-        ),
-        'public' => true,
-        'hierarchical' => true,
-    );
-    register_taxonomy('category', array('berita-olahraga'), $args);
-}
-add_action('init', 'taxonomy_olahraga');
-
-// BERITA MAKANAN
-function post_type_makanan()
-{
-    $args = array(
-        'labels' => array(
-            'name' => 'Berita Makanan',
-            'singular_name' => 'Berita Makanan',
-        ),
-        'hierarchical' => true,
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-insert',
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
-    );
-    register_post_type('berita-makanan', $args);
-}
-add_action('init', 'post_type_makanan');
-
-function taxonomy_makanan()
-{
-    $args = array(
-        'labels' => array(
-            'name' => 'Category Makanan',
-            'singular_name' => 'Category Makanan',
-        ),
-        'public' => true,
-        'hierarchical' => true,
-    );
-    register_taxonomy('category', array('berita-makanan'), $args);
-}
-add_action('init', 'taxonomy_makanan');
-
-// BERITA CORONAVIRUS
-function post_type_coronavirus()
-{
-    $args = array(
-        'labels' => array(
-            'name' => 'Berita Coronavirus',
-            'singular_name' => 'Berita Coronavirus',
-        ),
-        'hierarchical' => true,
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-insert',
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
-    );
-    register_post_type('berita-coronavirus', $args);
-}
-add_action('init', 'post_type_coronavirus');
-
-function taxonomy_coronavirus()
-{
-    $args = array(
-        'labels' => array(
-            'name' => 'Category Coronavirus',
-            'singular_name' => 'Category Coronavirus',
-        ),
-        'public' => true,
-        'hierarchical' => true,
-    );
-    register_taxonomy('category', array('berita-coronavirus'), $args);
-}
-add_action('init', 'taxonomy_coronavirus');
-
-//POST TYPE LAIN
-add_action('init', 'custom_post_type');
-function custom_post_type()
+//CUSTOM POST TYPE BERITA
+function post_type_berita()
 {
     $label = array(
-        'name' => 'Series',
-        'singular_name' => 'Series',
-        'add_new' => 'Add Series',
-        'all_items' => 'All Series',
-        'add_new_item' => 'Add Item',
-        'edit_item' => 'Edit Item',
-        'new_item' => 'New Item',
-        'view_item' => 'View Item',
-        'search_item' => 'Search Post',
-        'not_found' => 'No Items Found',
-        'not_found_trash' => 'No items found in trash',
+        'name' => 'Berita',
+        'singular_name' => 'Berita',
+        'add_new' => 'Tambahkan Berita',
+        'all_items' => 'Semua Berita',
+        'add_new_item' => 'Tambahkan Berita',
+        'edit_item' => 'Edit Berita',
+        'new_item' => 'Berita Baru',
+        'view_item' => 'Lihat Berita',
+        'search_item' => 'Pencarian Berita',
+        'not_found' => 'Tidak Ada Berita',
+        'not_found_trash' => 'Tidak Ada Berita Dalam Trash',
         'parent_item_colon' => 'Parent Item'
     );
     $args = array(
         'labels' => $label,
         'public' => true,
-        'has_archive' => "series",
+        'has_archive' => "berita",
         'publicly_queryable' => true,
         'query_var' => true,
         'capability_type' => 'post',
         'rewrite' => array(
-            'slug' => 'series',
+            'slug' => 'berita',
             'feeds' => false
         ),
         'hierarchical' => false,
@@ -207,10 +80,13 @@ function custom_post_type()
             'tags'
         ),
         'menu_position' => 5,
+        'menu_icon' => 'dashicons-insert',
         'exclude_from_search' => false
     );
-    register_post_type('series', $args);
-}git br
+    register_post_type('berita', $args);
+    register_taxonomy('category-berita', array('berita'), $args);
+}
+add_action('init', 'post_type_berita');
 
 // Redux Framework
 require_once(get_template_directory() . "/library/redux-core/framework.php");
@@ -227,7 +103,6 @@ if (!function_exists('fauzanoptions')) {
             return !empty($fauzanclone[$opt_name]) ? $fauzanclone[$opt_name] : null;
         }
     }
-
     require_once get_template_directory() . '/includes/helpers/comment.php';
 }
 
@@ -262,10 +137,9 @@ if (!function_exists('fauzan_layout')) {
                 get_template_part('template-parts/views/layout', $type);
             endif;
         } else {
-            get_template_part('template-parts/views/layout', 'default');
+            get_template_part('template-parts/content', 'home');
         }
     }
-
     add_action('fauzan_layout', 'fauzan_layout', 10, 1);
 }
 ?>

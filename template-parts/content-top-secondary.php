@@ -1,7 +1,7 @@
 <div class="flex">
     <?php
     $SecondaryPost = new WP_Query(array(
-        'post_type' => 'post',
+        'post_type' => 'berita',
         'posts_per_page' => 3,
         'offset' => 1,
     ));

@@ -1,7 +1,7 @@
 <?php
 $category_id = get_cat_ID(single_cat_title('', false));
 $AllPost = new WP_Query(array(
-    'post_type' => 'post',
+    'post_type' => 'berita',
     'posts_per_page' => 999,
     'cat' => $category_id,
 ));
