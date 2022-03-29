@@ -44,8 +44,8 @@ global $fauzanredux;
         </ul>
     </div>
     <div class="footer-bottom">
-        <p>Copyright &copy; <?php echo $fauzanredux['copyright-text']; ?> <a
-                    href="<?php echo $fauzanredux['developer-url']; ?>"
-                    target="_blank"><?php echo $fauzanredux['developer-name'] ?></a></p>
+        <p>Copyright &copy; <?php echo $fauzanredux['copyright-text']; ?>
+            <a href="<?php echo $fauzanredux['developer-url']; ?>"
+               target="_blank"><?php echo $fauzanredux['developer-name'] ?></a></p>
     </div>
 </footer>

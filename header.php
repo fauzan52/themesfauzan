@@ -10,45 +10,58 @@ global $fauzanredux;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
           integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
-    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('fa-bars').click(function (){
+                $('main-header-tertiary__navigation').toggleClass('show');
+            });
+        });
+    </script>
     <title><?php
         if (wp_title('', false)) {
             echo '';
         } else {
             echo bloginfo('name');
-        } wp_title('');
+        }
+        wp_title('');
         ?></title>
     <?php wp_head(); ?>
 </head>
 <header>
-    <div class="main-header">
-        <div class="main-header-primary">
-            <h3>Office: <?php echo $fauzanredux['address-office'] ?></h3>
-        </div>
-        <div class="main-header-secondary">
-            <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo $fauzanredux['logo']['url']; ?>"></a>
-            <div class="search">
-                <form role="search" method="get" id="search-form" action="<?php echo esc_url(home_url('/')); ?>">
-                    <input type="text" placeholder="Search" name="s" id="search-input"
-                           value="<?php echo esc_attr(get_search_query()); ?>">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </form>
-            </div>
-        </div>
-        <hr>
-        <div class="main-header-tertiary">
-            <div class="main-header-tertiary__navigation">
-                <?php
-                $args = array('theme_location' => 'main_menu');
-                wp_nav_menu($args);
-                ?>
-                <?php wp_register(); ?>
-                <li><?php wp_loginout(); ?>
-                    <?php wp_meta(); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-header">
+                    <div class="main-header-primary">
+                        <h3>Office: <?php echo $fauzanredux['address-office'] ?></h3>
+                    </div>
+                    <div class="main-header-secondary">
+                        <a href="<?php echo esc_url(home_url('/')); ?>"><img
+                                    src="<?php echo $fauzanredux['logo']['url']; ?>"></a>
+                        <div class="search">
+                            <form role="search" method="get" id="search-form"
+                                  action="<?php echo esc_url(home_url('/')); ?>">
+                                <input type="text" placeholder="Search" name="s" id="search-input"
+                                       value="<?php echo esc_attr(get_search_query()); ?>">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="main-header-tertiary">
+                        <div class="main-header-tertiary__navigation">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                            <?php
+                            $args = array('theme_location' => 'main_menu');
+                            wp_nav_menu($args);
+                            ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

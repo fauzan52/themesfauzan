@@ -13,8 +13,9 @@
                             <h1><b><?php echo get_the_title(); ?></b></h1>
                             <p><i>Created on <?php echo get_the_date(); ?>
                                     | <?php echo 'Category : ' . get_the_category($id)[0]->name . ' '; ?></i></p>
-                            <?php if(get_field('player') ): ?>
-                                <p>Team : <b><?php the_field('team'); ?></b> | Player : <b><?php the_field('player'); ?></b></p>
+                            <?php if (get_field('player')): ?>
+                                <p>Team : <b><?php the_field('team'); ?></b> | Player :
+                                    <b><?php the_field('player'); ?></b></p>
                             <?php endif; ?>
                             <h3><?php echo the_content(); ?></h3>
                             <p><i>Keywords : <?php the_field('keywords'); ?></i></p>

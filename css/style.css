@@ -10,6 +10,13 @@ Description: tema untuk kalian
 /*}*/
 
 /*CSS HEADER*/
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
 header {
     width: 100%;
     position: absolute;
@@ -32,7 +39,6 @@ header {
 }
 
 .main-header .main-header-primary h3 {
-    margin-left: 20px;
     margin-top: 5px;
     color: white;
     font-size: 16px;
@@ -47,7 +53,6 @@ header {
 
 .main-header .main-header-secondary img {
     margin-top: 40px;
-    margin-left: 20px;
     width: 300px;
     height: 50px;
     position: relative;
@@ -88,6 +93,7 @@ header {
 }
 
 .main-header hr {
+    width: 100%;
     border-top: 1px solid white;
 }
 
@@ -98,16 +104,21 @@ header {
 .main-header .main-header-tertiary .main-header-tertiary__navigation {
     width: 100%;
     font-weight: 500;
-    margin-left: -15px;
+    margin-left: -30px;
 }
 
-/*.main-header .main-header-tertiary .main-header-tertiary__navigation ul {*/
-/*    width: 100%;*/
-/*    text-align: center;*/
-/*}*/
+.main-header .main-header-tertiary .main-header-tertiary__navigation .fa-bars {
+    color: white;
+    margin-left: 30px;
+    margin-right: 20px;
+    font-size: 20px;
+    float: left;
+    cursor: pointer;
+    /*display: none;*/
+}
 
 .main-header .main-header-tertiary .main-header-tertiary__navigation li {
-    margin-right: 10px;
+    margin-right: 20px;
     display: inline-block;
     float: left;
 }
@@ -128,13 +139,51 @@ header {
     color: orange!important;
 }
 
+@media (max-width: 1024px) {
+    .main-header .main-header-tertiary .main-header-tertiary__navigation .fa-bars {
+        display: block;
+    }
+
+    .main-header .main-header-tertiary .main-header-tertiary__navigation {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: black;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+    }
+
+    .main-header .main-header-tertiary .main-header-tertiary__navigation li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    .main-header .main-header-tertiary .main-header-tertiary__navigation li a {
+        font-size: 20px;
+    }
+
+    .main-header .main-header-tertiary .main-header-tertiary__navigation li a:hover {
+        color: orange;
+    }
+
+    .current_page_parent a, .current-menu-item a {
+        color: orange!important;
+    }
+
+    .main-header .main-header-tertiary .main-header-tertiary__navigation.show {
+        left: 0;
+    }
+}
+
 /*CSS ADV TOP*/
 .app-card-first {
     width: 1280px;
-    height: 150px;
+    height: 300px;
     overflow: hidden;
     background: white;
-    box-shadow: 0 0 10px black;
     margin-bottom: 20px;
     border-radius: 10px
 }
@@ -147,8 +196,8 @@ header {
 
 .app-card-first .app-card-first__container .app-card-first__images {
     border-radius: 10px;
-    width: 1280px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
 }
 
 .app-card-first .app-card-first__container .app-card-first__images img {
@@ -312,7 +361,6 @@ h1 {
     height: 500px;
     overflow: hidden;
     background: white;
-    box-shadow: 0 0 10px black;
     margin-bottom: 20px;
     border-radius: 10px;
 }
@@ -335,7 +383,7 @@ h1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    display: block;
+    object-fit: cover;
     transition: transform 1s;
 }
 
@@ -422,50 +470,6 @@ h1 {
 
 .app-card-secondary .app-card-secondary__box p {
     font-size: 14px;
-}
-
-.category {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.category .category-box {
-    width: 100%;
-    height: 500px;
-    background: black;
-    border-radius: 25px;
-}
-
-.category .category-box h1 {
-    padding: 20px 20px 0 20px;
-    text-align: center;
-    font-size: 40px;
-    color: orange;
-    text-transform: uppercase;
-}
-
-.category .category-box hr {
-    height: 10px;
-    border-width: 0;
-    color: white;
-    background-color: white;
-}
-
-.category .category-box h3 {
-    padding: 0 20px 5px 20px;
-    text-align: left;
-    font-size: 20px;
-    color: white;
-}
-
-.category .category-box a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.category .category-box a:hover {
-    color: orange;
 }
 
 /*CSS RIGHT CONTENT */
@@ -561,7 +565,16 @@ h1 {
     color: black;
 }
 
-/*ALL POST*/
+/*SINGLE POST*/
+.title-page h1 {
+    font-size: 36px;
+    font-weight: bold;
+
+    color: orange;
+
+}
+
+
 .app-card-allpost {
     width: 100%;
     height: 150px;
