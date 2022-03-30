@@ -119,12 +119,15 @@ function fauzan_pagination()
         ]
     ];
     $args = [
-        'before_page_number' => '<span class="btn border border-secondary mr-2 mb-2">',
+        'before_page_number' => '<span class="btn border border-dark mr-2 mb-2">',
         'after_page_number' => '</span>',
     ];
     printf('<nav class="fauzan_pagination clearfix">%s</nav>', wp_kses(paginate_links($args), $allowed_tags));
 }
 
+//Search for Title Only
+
+//LAYOUT
 if (!function_exists('fauzan_layout')) {
     function fauzan_layout($type)
     {

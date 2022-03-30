@@ -25,6 +25,10 @@ header {
     background: black;
 }
 
+body {
+    width: 100%;
+}
+
 .main-header {
     width: 100%;
     height: 200px;
@@ -33,7 +37,7 @@ header {
 }
 
 .main-header .main-header-primary {
-    width: 1280px;
+    width: 100%;
     height: 10px;
     display: flex;
 }
@@ -45,10 +49,21 @@ header {
 }
 
 .main-header .main-header-secondary {
-    width: 1280px;
+    width: 100%;
     height: 100px;
     display: flex;
     margin-bottom: 20px;
+}
+
+.main-header .main-header-secondary .fa-bars {
+    color: white;
+    font-size: 25px;
+    line-height: 100px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none;
 }
 
 .main-header .main-header-secondary img {
@@ -75,20 +90,21 @@ header {
     outline: none;
     border: 1px solid black;
     border-radius: 4px;
-    padding: 0 10px 0 45px;
+    padding-left: 20px;
 }
 
 .main-header .main-header-secondary .search input::placeholder {
+    font-size: 20px;
     color: black;
 }
 
 .main-header .main-header-secondary .search .fa-search {
+    font-size: 20px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 10px;
+    right: 10px;
     color: black;
-    border-right: 1px solid black;
     padding-right: 10px;
 }
 
@@ -98,37 +114,31 @@ header {
 }
 
 .main-header .main-header-tertiary {
-    width: 1280px;
+    width: 100%;
 }
 
 .main-header .main-header-tertiary .main-header-tertiary__navigation {
     width: 100%;
-    font-weight: 500;
-    margin-left: -30px;
 }
 
-.main-header .main-header-tertiary .main-header-tertiary__navigation .fa-bars {
-    color: white;
-    margin-left: 30px;
-    margin-right: 20px;
-    font-size: 20px;
-    float: left;
-    cursor: pointer;
-    /*display: none;*/
+.main-header .main-header-tertiary .main-header-tertiary__navigation ul {
+    width: 100%;
+    font-weight: 500;
+    padding: 0;
+    list-style-type:none ;
 }
 
 .main-header .main-header-tertiary .main-header-tertiary__navigation li {
     margin-right: 20px;
     display: inline-block;
-    float: left;
 }
 
 .main-header .main-header-tertiary .main-header-tertiary__navigation li a {
-    text-align: center;
     color: white;
     text-decoration: none;
     font-size: 20px;
     letter-spacing: 1px;
+    text-transform: uppercase ;
 }
 
 .main-header .main-header-tertiary .main-header-tertiary__navigation li a:hover {
@@ -139,48 +149,79 @@ header {
     color: orange!important;
 }
 
-@media (max-width: 1024px) {
-    .main-header .main-header-tertiary .main-header-tertiary__navigation .fa-bars {
+@media (max-width: 1080px) {
+    .container {
+        padding:0;
+        margin:0;
+    }
+
+    body {
+        padding:0;
+        margin: 0;
+    }
+
+    .main-header .main-header-primary {
+        display: none;
+    }
+
+    .main-header .main-header-secondary img {
+        width: 150px;
+        height: 25px;
+    }
+
+    .main-header .main-header-secondary .search {
+
+    }
+
+    .main-header hr {
+        display: none;
+    }
+
+    .main-header .main-header-secondary .fa-bars {
         display: block;
     }
 
-    .main-header .main-header-tertiary .main-header-tertiary__navigation {
+    .main-header .main-header-tertiary .main-header-tertiary__navigation ul {
         position: fixed;
-        width: 100%;
+        width: 25%;
         height: 100vh;
         background: black;
-        top: 80px;
         left: -100%;
-        text-align: center;
+        text-align: left;
         transition: all 0.5s;
+    }
+
+    .main-header .main-header-tertiary .main-header-tertiary__navigation ul.show {
+
     }
 
     .main-header .main-header-tertiary .main-header-tertiary__navigation li {
         display: block;
-        margin: 50px 0;
-        line-height: 30px;
+
     }
 
     .main-header .main-header-tertiary .main-header-tertiary__navigation li a {
         font-size: 20px;
     }
 
-    .main-header .main-header-tertiary .main-header-tertiary__navigation li a:hover {
-        color: orange;
-    }
-
     .current_page_parent a, .current-menu-item a {
         color: orange!important;
     }
 
-    .main-header .main-header-tertiary .main-header-tertiary__navigation.show {
+    .main-header .main-header-tertiary .main-header-tertiary__navigation ul.show {
         left: 0;
     }
 }
 
+/*CSS PAGINATION*/
+.page-numbers.current > span {
+    background-color: black;
+    color: white;
+}
+
 /*CSS ADV TOP*/
 .app-card-first {
-    width: 1280px;
+    width: 100%;
     height: 300px;
     overflow: hidden;
     background: white;
@@ -233,7 +274,6 @@ header {
     background: white;
     border-radius: 10px;
     margin-bottom: 20px;
-    margin-right: 15px;
 }
 
 .app-card-adv-right .app-card-adv-right__images {
@@ -353,11 +393,11 @@ h1 {
 }
 
 .distance {
-    margin-top: 200px;
+    margin-top: 220px;
 }
 
 .app-card-primary {
-    width: 1280px;
+    width: 100%;
     height: 500px;
     overflow: hidden;
     background: white;
@@ -477,7 +517,6 @@ h1 {
     width: 1280px;
     background: white;
     margin-bottom: 10px;
-    margin-right: 15px;
 }
 
 .rightcontent-app .rightcontent-app-right {
@@ -546,34 +585,12 @@ h1 {
     color: orange;
 }
 
-/*SCROLLING TYPE*/
-.scroll-bg {
-    background: white;
-    width: 40%;
-    padding: 10px;
-}
-
-.scroll-bg .scroll-bg-body {
-    width: 100%;
-    background: white;
-    height: 300px;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-
-.scroll-bg .scroll-bg-body .scroll-bg-body-object {
-    color: black;
-}
-
 /*SINGLE POST*/
 .title-page h1 {
     font-size: 36px;
     font-weight: bold;
-
     color: orange;
-
 }
-
 
 .app-card-allpost {
     width: 100%;

@@ -16,8 +16,8 @@ global $fauzanredux;
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script>
         $(document).ready(function (){
-            $('fa-bars').click(function (){
-                $('main-header-tertiary__navigation').toggleClass('show');
+            $('.fa-bars').click(function (){
+                $('ul').toggleClass('show');
             });
         });
     </script>
@@ -40,12 +40,13 @@ global $fauzanredux;
                         <h3>Office: <?php echo $fauzanredux['address-office'] ?></h3>
                     </div>
                     <div class="main-header-secondary">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
                         <a href="<?php echo esc_url(home_url('/')); ?>"><img
                                     src="<?php echo $fauzanredux['logo']['url']; ?>"></a>
                         <div class="search">
                             <form role="search" method="get" id="search-form"
                                   action="<?php echo esc_url(home_url('/')); ?>">
-                                <input type="text" placeholder="Search" name="s" id="search-input"
+                                <input type="text" placeholder="Search ..." name="s" id="search-input"
                                        value="<?php echo esc_attr(get_search_query()); ?>">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </form>
@@ -54,11 +55,12 @@ global $fauzanredux;
                     <hr>
                     <div class="main-header-tertiary">
                         <div class="main-header-tertiary__navigation">
-                            <i class="fa fa-bars" aria-hidden="true"></i>
+                            <ul>
                             <?php
                             $args = array('theme_location' => 'main_menu');
                             wp_nav_menu($args);
                             ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
