@@ -14,6 +14,7 @@ get_header();
                 <?php
                 get_template_part('template-parts/content', 'adv-top');
                 get_template_part('template-parts/content', 'top-primary');
+                get_template_part('template-parts/content', 'carousel');
                 ?>
             </div>
             <div class="col-lg-8">
