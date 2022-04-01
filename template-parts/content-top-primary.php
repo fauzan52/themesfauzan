@@ -4,10 +4,11 @@ $PrimaryPost = new WP_Query(array(
     'posts_per_page' => 1,
 ));
 ?>
-<?php if ($PrimaryPost->have_posts()) : ?>
-<?php while ($PrimaryPost->have_posts()) :
-$PrimaryPost->the_post(); ?>
+
 <div class="app-card-primary">
+    <?php if ($PrimaryPost->have_posts()) : ?>
+        <?php while ($PrimaryPost->have_posts()) :
+            $PrimaryPost->the_post(); ?>
     <div class="app-card-primary__container">
         <div class="app-card-primary__images">
             <a href="<?php the_permalink(); ?>">
